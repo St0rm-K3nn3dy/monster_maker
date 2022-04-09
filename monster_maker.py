@@ -71,15 +71,14 @@ undead_cosmetic = []
 
 print('''
       This is the Monster Maker, monsters will be returned to a new text document.
-      The first prompt is mode. Enter random to generate random monsters automatically.
-      Enter anything else to input parameters manually.
+      The first prompt is mode. Enter random to generate random 10 monsters automatically.
+      Enter manual to input parameters manually.
       Monster Level is an integer between 1 and 20.
       Monster Rarity is Common, Uncommon or Rare.
       Monster Class is Arcanist, Frontliner, Tank, Sniper or Minion.
       Monster type can be Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant or Undead.
       You can input random for any of these parameters.
-      If you want to end the program, type 'end' when prompted.
-      If you don't wish to end the program, input anything other than the word end. Case is not sensitive.
+      If you want to end the program, type 'end' at any input stage.
       ''')
 
 
@@ -88,72 +87,21 @@ def set_vars():
 
 
 def set_stats(x, y, z):
-    match x: # x is level variable
-        case 1:
-            dmg = 4
-        case 2:
-            dmg = 5
-        case 3:
-            dmg = 6
-        case 4:
-            dmg = 8
-        case 5:
-            dmg = 10
-        case 6:
-            dmg = 12
-        case 7:
-            dmg = 14
-        case 8:
-            dmg = 16
-        case 9:
-            dmg = 18
-        case 10:
-            dmg = 20
-            dc = 18
-        case 11:
-            dmg = 22
-            dc = 19
-        case 12:
-            dmg = 24
-            dc = 20
-        case 13:
-            dmg = 26
-            dc = 21
-        case 14:
-            dmg = 28
-            dc = 22
-        case 15:
-            dmg = 30
-            dc = 23
-        case 16:
-            dmg = 32
-            dc = 24
-        case 17:
-            ac = 16
-            dmg = 34
-            dc = 25
-        case 18:
-            ac = 16
-            dmg = 36
-            dc = 26
-        case 19:
-            ac = 17
-            dmg = 38
-            dc = 27
-        case 20:
-            ac = 17
-            dmg = 40
-            dc = 28
+    # x is the level variable
     hp = x * 5
+    dmg = ceil(x * 2) + 2
     atk = ceil(x / 2) + 3
+    dc = ceil(x / 2) + 12
     if x < 9:
         ac = 13
     if x < 13:
         ac = 14
     if x < 17:
         ac = 15
-    if x < 10:
-        dc = ceil(x / 2) + 12
+    if x < 19:
+        ac = 16
+    if x < 21:
+        ac = 17
     senses = random.choice(ind_ability_vision)
     senses_exotic = random.choice(ind_ability_vision_exotic)
     movement = random.choice(ind_ability_movement)
@@ -313,12 +261,14 @@ def call_program():
 call_program()
 
 
-# our program works until we are dones
-# we have every attribute in play, up to basic implementation
-# what else do we want
-# post the current version on github?
-# give it one more read
-# have this install itself in a known folder?
+# what else do we want?
+
+
+
+
+
+
+
 
 
 
